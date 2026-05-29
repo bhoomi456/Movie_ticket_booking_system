@@ -17,4 +17,20 @@ module TicketManager
   def caculated_total_amount(movie, ticket_count)
     movie.ticket_price * ticket_count
   end
+
+  def cancle_tickets(customer_id, movie_title)
+    customer = find_customer(customer_id)
+    raise "Customer not found" if customer.nil?
+
+    movie = find_movie(movie_title)
+    raise "Movie not found" if movie.nil?
+
+    booking = find_booking(customer, movie_title)
+    raise "Booking not found" if booking.nil?
+
+    customer.booked_tickets.delete(booking)
+    movie.available_seats += booking[:ticket_count]
+
+    puts "#{booking} cancled successfully of customer #{customer.name}"
+  end
 end
