@@ -10,9 +10,30 @@ c = Customer.new("bhoomi", 101)
 
 system = BookingSystem.new
 system.add_movie(m)
+puts "------------------------------"
+
 system.add_customer(c)
+puts "------------------------------"
+
+
 system.book_tickets(101, "dhurandar", 3)
-puts m.available_seats
-puts c.booked_tickets
+puts "------------------------------"
+
+
+puts "Available seats of #{m.movie_title} = #{m.available_seats}"
+puts "------------------------------"
+
+
+system.display_booking_details(101)
+puts "------------------------------"
+
+
 system.cancle_tickets(101, "dhurandar")
-puts m.available_seats
+puts "------------------------------"
+
+
+puts "Available seats of #{m.movie_title} = #{m.available_seats}"
+puts "------------------------------"
+
+
+
