@@ -14,3 +14,5 @@ system.add_customer(c)
 system.book_tickets(101, "dhurandar", 3)
 puts m.available_seats
 puts c.booked_tickets
+system.cancle_tickets(101, "dhurandar")
+puts m.available_seats

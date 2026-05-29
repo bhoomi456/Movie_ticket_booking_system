@@ -34,4 +34,10 @@ class BookingSystem
     }
     customer.booked_tickets << booking
   end
+
+  def find_booking(customer, movie_title)
+    customer.booked_tickets.find do |booking|
+      booking[:movie_title] == movie_title
+    end
+  end
 end
