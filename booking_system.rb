@@ -40,4 +40,20 @@ class BookingSystem
       booking[:movie_title] == movie_title
     end
   end
+
+  def display_booking_details(customer_id)
+    customer = find_customer(customer_id)
+    raise "Customer not found" if customer.nil?
+
+    puts "----Booking details----"
+    customer.booked_tickets.each do |booking|
+      puts "Customer name : #{customer.name}"
+      puts "Movie : #{booking[:movie_title]}"
+      puts "Ticket_count: #{booking[:ticket_count]}"
+      puts "Amount: #{booking[:amount]}"
+      puts "---------------------------"
+    end
+
+    raise "No booking is there" if customer.booked_tickets.empty?
+  end
 end
