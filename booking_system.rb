@@ -26,4 +26,12 @@ class BookingSystem
     @movies.find {|m| m.movie_title == movie_title}
   end
 
+  def add_booking(customer, movie, ticket_count, amount)
+    booking = {
+      movie_title: movie.movie_title,
+      ticket_count: ticket_count,
+      amount: amount
+    }
+    customer.booked_tickets << booking
+  end
 end

@@ -11,5 +11,6 @@ c = Customer.new("bhoomi", 101)
 system = BookingSystem.new
 system.add_movie(m)
 system.add_customer(c)
-system.book_tickets(101, m, 3)
+system.book_tickets(101, "dhurandar", 3)
 puts m.available_seats
+puts c.booked_tickets
